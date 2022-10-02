@@ -3,7 +3,7 @@
 #### This project aims to predict wage based on independent variables established from the dataset by applying a multiple linear regression model. We concluded on the model with five predictors as our final model. A significant regression equation was found with F = 3655,p< 2.2e-16, with an R2 of 0.3974
 #### Log(Wage) = 1.910 + 0.040*education + 0.007*experience + 0.105*ethnicity + 0.072*smsa – 0.457*parttime
 
-### Data pre-processing
+## Data pre-processing
 
 #### The dataset contains 4 categorical variables. The three explanatory variables(ethnicity, smsa and parttime) are predictors with two levels. 
 #### We therefore classified these as dummy variables and assigned them the values 0 and 1 as following:
@@ -23,7 +23,7 @@
 </p>
 <h5 align="center">Distribution of Wages</h5>
 
-### Correlation & Multicollinearity
+## Correlation & Multicollinearity
 #### Linearity assumption for the model was tested by plotting the independent variables against the response variable. Before choosing our final model, we also checked for multicollinearity to avoid a situation where two or more predictors are highly correlated.
 
 #### This was done using the vif() function, and we got the following result, We can see from the outcome of VIF that we do not have any cases of extreme multicollinearity, rather, it shows a low number for all the predictors. Hence, we do not remove any variables and move on to the next part of determining a linear regression model.
@@ -32,7 +32,7 @@
 </p>
 <h5 align="center"> multi-collinearity matrix</h5>
 
-### Deciding on important variables & Model fit
+## Deciding on important variables & Model fit
 
 #### To obtain our final model, we fitted the model using least squares, by using the lm() function.We started with the null model and kept adding variables until we reached the best fit. With forward and backward steps, we reached a model with all variables to have the best R square value.
 
@@ -46,6 +46,7 @@
 
 </p>
 <h5 align="center"> ANOVA Result</h5>
+
 #### We can see a great reduction in the RSS in the final model where we include the dummy variables compared to the model without. Moreover, we wanted to see if the RSS would be affected by removing region.
 <p align="center">
 <img width="586" alt="Screenshot 2022-10-02 at 14 39 07" src="https://user-images.githubusercontent.com/66077662/193457525-76f57367-5854-4f91-bbac-9deb40b8b70a.png">
@@ -68,7 +69,7 @@
 </p>
 <h5 align="center"> Summary Table for Log(wage)</h5>
 
-### Hypothesis test
+## Hypothesis test
 
 #### When performing the multiple linear regression, we were interested in knowing whether at least one of the predictors education, experience, ethnicity, smsa, and parttime were useful in predicting wage. Moreover, it is also interesting to see if all predictors help in explaining Y, or only a subset.
 
@@ -78,7 +79,7 @@
 #### Since the p-value for all the independent variables in our chosen model is < 0.05 for H0, we reject the null hypothesis, meaning that there is a relationship between the dependentand independent variables.
 #### The p-value for our F-statistic value is also lower than 5%, indicating a significance for the parameters in our model.
 
-### Confidence & Prediction Interval
+## Confidence & Prediction Interval
 
  #### x <- data.frame(education=13, experience= 18, ethnicity=1, smsa=1, region=1, parttime=1)
  
@@ -92,7 +93,7 @@
 
 #### For education being 13 years, experience as 18 years, and the explanatory variables assigned 1, the model predicts a wage of approximately 2.28 dollars [Keeping in mind that wage is formatted to its log value], with 95% confidence interval (2.27,2.29) and a prediction interval of (1.82, 2.75). We can also see that the prediction interval is considerably wider than the confidence interval, reflecting the increased uncertainty around wage for the given values in the data frame, as it also contains the error term.
 
-### Residual plots
+## Residual plots
 
 <p align="center">
 <img width="486" alt="Screenshot 2022-10-02 at 14 38 23" src="https://user-images.githubusercontent.com/66077662/193457599-2c928ccf-cde0-4ad7-9ca7-81f4b52ebb9f.png">
